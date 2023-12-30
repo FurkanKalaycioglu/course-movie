@@ -1,7 +1,7 @@
 import react, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import InputMask from "react-input-mask";
-import Router from "../Router";
+import Router from "./Router";
 function App() {
   const {
     register,
@@ -28,7 +28,7 @@ function App() {
   const tempuser = "test@test.com";
   const tempPass = "123456";
 
-  const canLogin = (email, password) => {
+  const canLogin = (email: any, password: any) => {
     const user = USER_DATA.find((user) => user.email === email);
     if (user) {
       if (user.password === password) {
@@ -47,7 +47,7 @@ function App() {
       console.log("Logged In");
     } else {
       console.log("Not Logged In");
-      localStorage.setItem("isLoggedIn", true);
+      localStorage.setItem("isLoggedIn", true as any);
     }
 
     // console.log(canLogin(tempuser, tempPass));
@@ -71,7 +71,7 @@ function App() {
           placeholder="Email"
         />
         {errors && errors.email && (
-          <span className="text-red-500">{errors.email.message}</span>
+          <span className="text-red-500">{errors.email.message as any}</span>
         )}
 
         <input
