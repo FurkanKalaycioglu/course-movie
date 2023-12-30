@@ -6,7 +6,6 @@ import {
 } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-import App from "./pages/App";
 import Login from "./pages/Login";
 
 function Router() {
