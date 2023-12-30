@@ -1,8 +1,7 @@
-import { useEffect } from "react";
+import react, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import InputMask from "react-input-mask";
 import Router from "../Router";
-
 function App() {
   const {
     register,

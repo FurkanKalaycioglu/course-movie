@@ -7,6 +7,7 @@ import {
 import { useEffect, useState } from "react";
 
 import App from "./pages/App";
+import Login from "./pages/Login";
 
 function Router() {
   const [isLogged, setIsLogged] = useState(false);
@@ -35,7 +36,7 @@ function Router() {
     },
     {
       path: "/login",
-      element: <div>test login</div>,
+      element: <Login />,
     },
     {
       path: "/payment",
