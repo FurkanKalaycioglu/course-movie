@@ -7,6 +7,7 @@ import {
 import { useEffect, useState } from "react";
 
 import Login from "./pages/Login";
+import Movies from "./pages/Movies";
 
 function Router() {
   const [isLogged, setIsLogged] = useState(false);
@@ -16,9 +17,19 @@ function Router() {
     }
   }, []);
 
+  const [darkMode, setDarkMode] = useState(
+    localStorage.getItem("darkMode") === "true",
+  );
+
   useEffect(() => {
-    console.log("isLogged", isLogged);
-  }, [isLogged]);
+    if (darkMode) {
+      localStorage.setItem("darkMode", "true");
+      document.documentElement.classList.add("dark");
+    } else {
+      localStorage.setItem("darkMode", "false");
+      document.documentElement.classList.remove("dark");
+    }
+  }, [darkMode]);
 
   const router = createBrowserRouter([
     {
@@ -26,12 +37,20 @@ function Router() {
       element: (
         <>
           {!isLogged ? (
-            <div>test1</div>
+            <div className="bg-white dark:bg-gray-400 w-screen h-screen">
+              <button onClick={() => setDarkMode(!darkMode)}>
+                {darkMode ? "Dark Mode" : "Light Mode"}
+              </button>
+            </div>
           ) : (
             <Navigate to="/login" replace={true} />
           )}
         </>
       ),
+    },
+    {
+      path: "/movies",
+      element: <Movies />,
     },
     {
       path: "/login",

@@ -8,7 +8,7 @@ function Login() {
   return (
     <div className="h-screen w-screen">
       <div className="w-full h-full flex flex-col md:flex-row">
-        <div className="w-full h-full bg-primary relative">
+        <div className="w-full h-full dark:bg-white  bg-primary relative">
           <div className="flex flex-col justify-center gap-8 items-start ml-32 mt-20 mr-52">
             <div className="flex flex-col justify-center gap-3 items-start">
               <p className=" text-3xl font-bold text-grayscale-10">
